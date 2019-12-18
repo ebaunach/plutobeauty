@@ -6,10 +6,10 @@ import Popup from "../Components/Popup";
 const blushList = blushDB;
 
 class Blush extends Component {
-    //constructor to hold states for the pop up button
     constructor(props) {
         super(props);
         this.state = {showPopup: false}; //default state of popup
+        this.togglePopup=this.togglePopup.bind(this); //binds the event
     }
     togglePopup(){
         this.setState({
@@ -27,15 +27,15 @@ class Blush extends Component {
                             <li>{info.name} </li>
                             <li><img src = {info.image_link} /> </li>
                             <li>${info.price}  </li>
-
+                            <li> <button onClick={this.togglePopup.bind(this)}> More info </button>
+                                {this.state.showPopup?
+                                    <Popup
+                                        text={info.name}
+                                        closePopup = {this.togglePopup.bind(this)}
+                                    />
+                                    : null}
+                            </li>
                         </ul>
-                        <button onClick={this.togglePopup.bind(this)}> More info </button>
-                        {this.state.showPopup?
-                            <Popup
-                                text='Click "Beam me up Scotty" to hide popup'
-                                closePopup = {this.togglePopup.bind(this)}
-                            />
-                            : null}
                     </div>
                 )}
             </div>
