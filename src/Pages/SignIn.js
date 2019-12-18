@@ -2,17 +2,20 @@ import React, {Component} from 'react';
 
 class SignIn extends Component{
     render() {
-        return(
-            <div className = "container-fluid">
-                <div className= "alert alert-primary">
-                    <h1> SignIn </h1>
+        const {
+            user,
+            signOut,
+            signInWithMailPass,
+        } = this.props;
 
-                    <p className="Categories">
-                        insert something here
-                    </p>
-                </div>
+        return(
+            //TO DO
+            <div className = "signIn">
+                <header className= "signIn-Header">
+
+                    </header>
             </div>
-        )
+        );
     }
 }
 export default SignIn;

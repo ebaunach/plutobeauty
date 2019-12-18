@@ -22,9 +22,13 @@ class Foundation extends Component {
                     <h1> Foundation </h1>
                     {foundationList.map(info =>
                         <div key={info.id}>
-                            {info.name}
-                            <img src = {info.image_link} />
-                            {info.price} $
+                            <ul>
+                                <li>{info.brand}</li>
+                                <li>{info.name} </li>
+                                <li><img src = {info.image_link} /> </li>
+                                <li>${info.price}  </li>
+
+                            </ul>
                             <button onClick={this.togglePopup.bind(this)}> More info </button>
                             {this.state.showPopup?
                                 <Popup
@@ -34,6 +38,7 @@ class Foundation extends Component {
                                 : null}
                         </div>
                     )}
+
                 </div>
         );
     }

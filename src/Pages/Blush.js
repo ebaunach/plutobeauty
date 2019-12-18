@@ -22,9 +22,13 @@ class Blush extends Component {
                 <h1> Blush </h1>
                 {blushList.map(info =>
                     <div key={info.id}>
-                        {info.name}
-                        <img src = {info.image_link} />
-                        {info.price} $
+                        <ul>
+                            <li>{info.brand}</li>
+                            <li>{info.name} </li>
+                            <li><img src = {info.image_link} /> </li>
+                            <li>${info.price}  </li>
+
+                        </ul>
                         <button onClick={this.togglePopup.bind(this)}> More info </button>
                         {this.state.showPopup?
                             <Popup
