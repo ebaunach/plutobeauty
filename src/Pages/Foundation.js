@@ -1,51 +1,43 @@
 import React, {Component} from 'react';
 import {foundationDB} from "../Database/foundationDB";
+import Popup from "../Components/Popup";
 
-//import styled from 'styled-components';
-
-/**const Style = styled.Style`
-  width: 100%;
-  border-bottom: 10px solid #222;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 100px 0;
-  height: 140px;
-  margin-bottom: 60px;
-  background: #f8f8f8;
-
-      img {
-        display: inline-block;
-        margin-top: 5px;
-        width: 15px;
-        float: left;
-      }
-`;
- **/
-
-
+//create instance of the product List
 const foundationList = foundationDB;
 
 class Foundation extends Component {
+    //constructor to hold states for the pop up button
+    constructor(props) {
+        super(props);
+        this.state = {showPopup: false}; //default state of popup
+    }
+    togglePopup(){
+        this.setState({
+            showPopup: !this.state.showPopup
+            });
+    }
     render() {
         return (
-            //<Style>
                 <div className="list">
                     <h1> Foundation </h1>
                     {foundationList.map(info =>
                         <div key={info.id}>
-                            <b>Product:</b> {info.name},
-
+                            {info.name}
                             <img src = {info.image_link} />
-                            <b>Price:</b> {info.price}, {info.price_sign},
-                            <a href = {info.product_link}></a>
+                            {info.price} $
+                            <button onClick={this.togglePopup.bind(this)}> More info </button>
+                            {this.state.showPopup?
+                                <Popup
+                                    text='Click "Beam me up Scotty" to hide popup'
+                                    closePopup = {this.togglePopup.bind(this)}
+                                />
+                                : null}
                         </div>
-                    )
-                    }
+                    )}
                 </div>
-            //</Style>
         );
     }
 }
 export default Foundation;
+
+

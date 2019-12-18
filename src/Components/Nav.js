@@ -154,9 +154,10 @@ const Navigation = styled.header`
 `;
 
 class Nav extends Component {
+    //constructor to hold states for the navigation bar
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { //default state of the navigatioon bar
             isExpanded: false
         };
     }
