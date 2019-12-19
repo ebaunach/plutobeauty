@@ -19,8 +19,8 @@ const App = () => (
     <div>
         <Nav />
         <div className="container">
-            <Route exact={true} path="/SignIn" component={SignIn} />
-            <Route exaxt path="/Foundation" component={Foundation} />
+            <Route exact path="/SignIn" component={SignIn} />
+            <Route exact path="/Foundation" component={Foundation} />
             <Route exact path="/Eyes" component={Eyes} />
             <Route exaxt path="/Lips" component={Lips} />
             <Route exact path="/Blush" component={Blush} />

@@ -28,6 +28,7 @@ const Navigation = styled.header`
       width: 500px;
       display: block;
     }
+    /**
     em {
       font-size: 0.5em;
       float: left;
@@ -44,6 +45,7 @@ const Navigation = styled.header`
         float: left;
       }
     }
+    **/
   }
   .gray {
     color: #ccc;
@@ -173,14 +175,8 @@ class Nav extends Component {
         return (
             <Navigation>
                 <div className="logo">
-                    <Link to="/">
-                        <p>Pluto Beauty</p>
-                        <em>
-                            <div className="letterhead">
-                                <span className="name">PlutoBeauty</span>
-                                <span className="gray">TM</span>
-                            </div>
-                        </em>
+                    <Link to="/SignIn">
+                        <h1>Pluto Beauty</h1>
                     </Link>
                 </div>
                 <nav className="nav">

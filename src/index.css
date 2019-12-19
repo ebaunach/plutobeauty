@@ -23,9 +23,10 @@ object {
 }
 
 body {
+  alignment: center;
   font-family: "Poppins", sans-serif;
   font-size: 1.3rem;
-  background: #fefefe;
+  background: mediumpurple;
 }
 
 .container {

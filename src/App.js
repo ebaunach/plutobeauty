@@ -5,7 +5,6 @@ class App extends Component{
         <div className = "container-fluid">
           <div className= "alert alert-primary">
               <h1> Homepage </h1>
-
               <p className="Slideshow">
                   insert something here
               </p>

@@ -17,6 +17,8 @@ class Eyes extends Component {
             showPopup: !this.state.showPopup
         });
     }
+
+    //TO DO - FIX PopUp - doesn't give exact product details (need a loop?
     render() {
         return (
             <div className="list">
@@ -31,7 +33,11 @@ class Eyes extends Component {
                             <li> <button onClick={this.togglePopup.bind(this)}> More info </button>
                                 {this.state.showPopup?
                                     <Popup
-                                        text={info.name}
+                                        name={info.name}
+                                        brand={info.brand}
+                                        price={info.price}
+                                        description={info.description}
+                                        image_link={info.image_link}
                                         closePopup = {this.togglePopup.bind(this)}
                                     />
                                     : null}
