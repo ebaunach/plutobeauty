@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Router, Route } from "react-router-dom";
 import { SignUpLink } from '../SignUp';
 import { withFirebase } from '../Firebase';
 
