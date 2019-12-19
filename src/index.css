@@ -4,13 +4,28 @@
 /* ==========================================================================
    Responsive images and box padding
    ========================================================================== */
+img{
+  width: 100px;
+  height: 100px;
+}
 
-img,
-object {
-  display: block;
-  border: 0;
-  max-width: 100%;
-  height: auto;
+.item{
+  max-width: 30%;
+  max-height: auto;
+  text-align:center;
+  display:block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  float:left;
+}
+#index-gallery{
+  width: 100%;
+}
+div.info {
+  padding: 0px;
+  text-align: Left;
 }
 
 * {
@@ -23,10 +38,9 @@ object {
 }
 
 body {
-  alignment: center;
   font-family: "Poppins", sans-serif;
   font-size: 1.3rem;
-  background: mediumpurple;
+  background-image: radial-gradient(#F97794, #623AA2);
 }
 
 .container {
@@ -37,4 +51,24 @@ h1 {
   font-size: 3em;
   font-weight: 600;
 }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 33.33%;
+  width: 250px;
+  height: 150px;
+  margin: 1px;
+  text-align:center;
+  font-family: arial;
+  font-size:15px;
+  float:left;
+}
+
+button{
+  text-align:center;
+  font-family: arial;
+  color: white;
+  background: purple;
+
+}
+
 

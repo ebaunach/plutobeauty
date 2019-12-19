@@ -1,6 +1,6 @@
 import React from 'react';
 import "../Components/popStyle.css";
-import "./Review";
+//import "./Review";
 
 class Popup extends React.Component {
     render() {
@@ -11,7 +11,6 @@ class Popup extends React.Component {
                         {this.props.brand}
                         {this.props.price}
                         {this.props.description}
-                        {this.props.image_link}
                     <button onClick={this.props.closePopup}>Go back</button>
                 </div>
 

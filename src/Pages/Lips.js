@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Popup from "../Components/Popup";
-import {eyeshadowDB} from "../Database/eyeshadowDB";
+import {lipsDB} from "../Database/lipsDB";
 
 //create instance of the product List
-const lipsList = eyeshadowDB;
+const lipsList = lipsDB;
 
 class Lips extends Component {
     //constructor to hold states for the pop up button
@@ -24,28 +24,33 @@ class Lips extends Component {
             <div className="list">
                 <h1> Lips </h1>
                 {lipsList.map(info =>
-                    <div key={info.id}>
-                        <ul>
-                            <li>{info.brand}</li>
-                            <li>{info.name} </li>
-                            <li><img src = {info.image_link} /> </li>
-                            <li>${info.price}  </li>
-                            <li> <button onClick={this.togglePopup.bind(this)}> More info </button>
-                                {this.state.showPopup?
-                                    <Popup
-                                        name={info.name}
-                                        brand={info.brand}
-                                        price={info.price}
-                                        description={info.description}
-                                        image_link={info.image_link}
-                                        closePopup = {this.togglePopup.bind(this)}
-                                    />
-                                    : null}
-                            </li>
-                        </ul>
+                    <div class="card" key={info.id}>
+                        <img src={info.image_link} />
+                        <br />
+                        <div class="info">
+                            <b>Product:</b> {info.name}
+                            <br />
+                            <b>Price:</b>
+                            {info.price_sign} {info.price}
+                            <a href={info.product_link} />
+                            <br />
+                            <button onClick={this.togglePopup.bind(this)}> More info </button>
+                            {this.state.showPopup?
+                                <Popup
+                                    name={info.name}
+                                    brand={info.brand}
+                                    price={info.price}
+                                    description={info.description}
+                                    image_link={info.image_link}
+                                    closePopup = {this.togglePopup.bind(this)}
+                                />
+                                : null}
+                            <br/>
+                        </div>
                     </div>
                 )}
             </div>
+            //</Style>
         );
     }
 }
