@@ -1,45 +1,71 @@
 import React, { Component } from 'react';
-import withFirebaseAuth from 'react-with-firebase-auth'
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
-import firebaseconfig from './firebaseDB';
-import './SignInUp.css';
+import { withRouter } from 'react-router-dom';
+import { SignUpLink } from '../SignUp';
+import { withFirebase } from '../Firebase';
 
-const firebaseApp = firebase.initializeApp(firebaseconfig);
-
-class SignInUp extends Component{
-    render() {
-    const {
-      user,
-      signOut,
-      signInWithMailPass,
-    } = this.props;
-
-        return(
-            <div className="welcome">
-                <h1>Welcome to Pluto Beauty </h1>
-                <h2>Your one stop shop for reviewing makeup products!</h2>
-                <h3>Sign in or sign up below to start reviewing!</h3>
-
-                /**TO DO - use firebase **/
-                <div className="signIn">
-                  {
-                    user 
-                    ? <p>Hello, {user.displayName}</p>
-                    : <p>Please sign in.</p>
-                  }
-                  {
-                    user
-                    ? <button onClick={signOut}>Sign out</button>
-                    : <button onClick={signInWithMailPass}>Sign in with Your Email</button>
-                  </div>
-
-                /**TO DO - link to sign up page if they dont have account **/
-                <div className="signUp">
-                    <p>TO DO</p>
-                </div>
-            </div>
-        )
-    }
+const SignInPage = () => (
+  <div>
+    <h1>SignIn</h1>
+    <SignInForm />
+    <SignUpLink />
+  </div>
+);
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+  error: null,
+};
+class SignInFormBase extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...INITIAL_STATE };
+  }
+  onSubmit = event => {
+    const { email, password } = this.state;
+    this.props.firebase
+      .doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+    event.preventDefault();
+  };
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+  render() {
+    const { email, password, error } = this.state;
+    const isInvalid = password === '' || email === '';
+    return (
+      <form onSubmit={this.onSubmit}>
+        <input
+          name="email"
+          value={email}
+          onChange={this.onChange}
+          type="text"
+          placeholder="Email Address"
+        />
+        <input
+          name="password"
+          value={password}
+          onChange={this.onChange}
+          type="password"
+          placeholder="Password"
+        />
+        <button disabled={isInvalid} type="submit">
+          Sign In
+        </button>
+        {error && <p>{error.message}</p>}
+      </form>
+    );
+  }
 }
-export default SignIn;
+const SignInForm = compose(
+  withRouter,
+  withFirebase,
+)(SignInFormBase);
+export default SignInPage;
+export { SignInForm };
