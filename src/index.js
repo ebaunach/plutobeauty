@@ -16,6 +16,7 @@ import Form from "./Pages/Form";
 
 import "./index.css";
 
+//This will render the navigation bar at every instance of a page
 const App = () => (
     <div>
         <Nav />

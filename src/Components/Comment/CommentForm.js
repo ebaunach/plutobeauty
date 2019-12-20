@@ -3,16 +3,20 @@ import Firebase from "../Firebase";
 import "../Comment/CommentStyle.css";
 
 class CommentForm extends React.Component {
+
+    //constructor to hold initial states
     constructor(props) {
         super(props);
         this.state = {
             username: "",
             comment: ""
         };
+        //to bind events
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
+    //to
     formatTime() {
         const options = {
             month: "2-digit",
@@ -32,6 +36,7 @@ class CommentForm extends React.Component {
         return div.innerHTML;
     }
 
+    //handles the submit button with states
     handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -40,21 +45,25 @@ class CommentForm extends React.Component {
             time: this.formatTime()
         };
 
+        //with every comment handled by Firebase push
         const db = Firebase.database().ref("comments");
         db.push(user);
 
+        //states for Username and comment
         this.setState({
             username: "",
             comment: ""
         });
     }
 
+    //check the states
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
+    //renders the form with text before the user types in
     render() {
         return (
             <div className="comments-form">

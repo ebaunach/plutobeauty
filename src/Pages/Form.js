@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { FormErrors } from '../Components/FormErrors';
 import '../Components/Form.css';
 
+//This is the SignIn form available @ the homescreen
 class Form extends Component {
+
+    //constructor to hold initial states
     constructor (props) {
         super(props);
         this.state = {
@@ -15,6 +18,7 @@ class Form extends Component {
         }
     }
 
+    //handle user Inpput
     handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -22,6 +26,7 @@ class Form extends Component {
             () => { this.validateField(name, value) });
     }
 
+    //Validation - make sure the appropriate fields are valid (email, password)
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let emailValid = this.state.emailValid;
@@ -39,6 +44,7 @@ class Form extends Component {
             default:
                 break;
         }
+        //set the states with the validation
         this.setState({formErrors: fieldValidationErrors,
             emailValid: emailValid,
             passwordValid: passwordValid
@@ -49,10 +55,13 @@ class Form extends Component {
         this.setState({formValid: this.state.emailValid && this.state.passwordValid});
     }
 
+    //Have errors pop up if validation fails
     errorClass(error) {
         return(error.length === 0 ? '' : 'has-error');
     }
 
+    //Render the sign up form - with placeholders for before the user types anything
+    //Add a button to confirm the user's actions (signup)
     render () {
         return (
             <form className="theForm">

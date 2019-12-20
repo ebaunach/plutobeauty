@@ -3,7 +3,10 @@ import Firebase from "../Firebase";
 import "../Comment/CommentStyle.css";
 
 class CommentList extends React.Component {
+    //create array to hold comments
     state = { comments: [] };
+
+    //Comment section will hold up to 9 comments
     componentWillMount() { // [2]
         const db = Firebase.database().ref("comments");
         const MAX_COUNT = 9;
@@ -20,9 +23,13 @@ class CommentList extends React.Component {
             }
         });
     }
+
+    //
     componentDidMount() {
+        //implement firebase to store comments
         const db = Firebase.database().ref("comments");
 
+        //Keep pushing the array with new comments
         db.on("value", snapshot => {
             const comments = snapshot.val();
             const arr = [];
@@ -39,6 +46,8 @@ class CommentList extends React.Component {
             });
         });
     }
+
+    //Show a timeline of user comments  with timestamp
     render() {
         return (
             <div className="comments-list">
@@ -54,6 +63,7 @@ class CommentList extends React.Component {
     }
 }
 
+//What a single commment will hold - X says x time
 const Comment = ({ username, comment, time }) => (
     <div className="comment">
         <h4>{username} says</h4>

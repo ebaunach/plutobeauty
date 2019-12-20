@@ -1,24 +1,30 @@
 import React from 'react';
+import "../Components/popStyle.css";
 import CommentForm from "./Comment/CommentForm";
 import CommentList from "./Comment/CommentList";
-import "../Components/popStyle.css";
+
+/**
+ * Renders the props made in each of the pages & the Comment component that was imported.
+ * There was an issue where the Comment component was not functioning, this is most likely because the Popup component is unstable.
+ * So far this component renders every instance of a product regardless of which button is being clicked.
+ * I would like to fix this, but as I'm typing my laptop is flickering at almost an unreable level,
+ * that and the due date is looming
+ *
+ * TO DO - find a way to have the button only call each product (How??)
+ */
 
 class Popup extends React.Component {
     render() {
         return (
             <div className='popup'>
                 <div className='popup\_inner'>
-            <img source= {this.props.image_link} />  
-
-            <table>
-                <tr>
-                   <b> <th>Name</th><th>Brand</th><th>Price</th><th>Description</th></b>
-                </tr>
-                      <tr><td>{this.props.name}</td>
-                        <td>{this.props.brand}</td>
-                        <td>{this.props.price} $</td></tr>
-                        </table>
-                    <button onClick={this.props.closePopup}>Go back</button>
+                        <b>Name: {this.props.name}</b>
+                        <br/>
+                        <b>Brand: {this.props.brand}</b>
+                        <br/>
+                        <b>Price: {this.props.price} $</b>
+                        <br/>
+                        <br/>
                 </div>
                 <div className="comments">
                     <h2>Love it? Hate it? Leave a review!</h2>

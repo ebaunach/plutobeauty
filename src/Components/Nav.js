@@ -4,7 +4,8 @@ import { NavLink, Link } from "react-router-dom";
 // import { BurgerIcon } from './'
 import styled from "styled-components";
 
-
+//This attempt at styled navigation was taken from an old project
+//Attempts were made to make it worked with components but to no avail so other components resolved to CSS
 const Navigation = styled.header`
   width: 100%;
   border-bottom: 10px solid #222;
@@ -29,24 +30,6 @@ const Navigation = styled.header`
       width: 500px;
       display: block;
     }
-    /**
-    em {
-      font-size: 0.5em;
-      float: left;
-      display: block;
-      img {
-        display: inline-block;
-        margin-top: 5px;
-        width: 15px;
-        float: left;
-      }
-      .letterhead {
-        display: inline-block;
-        line-height: 260%;
-        float: left;
-      }
-    }
-    **/
   }
   .gray {
     color: #ccc;
@@ -164,12 +147,15 @@ class Nav extends Component {
             isExpanded: false
         };
     }
+    //initial state of the toggle function
     handleToggle(e) {
         e.preventDefault();
         this.setState({
             isExpanded: !this.state.isExpanded
         });
     }
+
+    //Renders the navigation bar & logo that serves as a home nav
     render() {
         const { isExpanded } = this.state;
 

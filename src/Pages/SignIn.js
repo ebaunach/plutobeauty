@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//Technically hard coding at this stage - forms that turn into buttons
  class SignIn extends Component {
     render() {
         return (

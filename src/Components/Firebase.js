@@ -1,6 +1,7 @@
 import * as firebase from 'firebase';
 
 /**
+ * Made this because Firebase had a critical error due the config was being called multiple times
  * check array length of Firebase apps length.
  * -> If there are no apps, the length will be zero & can initialise  app,
  *  -> otherwise export Firebase app instance.
