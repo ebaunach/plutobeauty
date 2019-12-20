@@ -1,30 +1,35 @@
 import React from 'react';
 import "../Components/popStyle.css";
-import CommentList from "./Comment/CommentList";
-import CommentForm from "./Comment/CommentForm";
-
+//import "./Review";
 
 class Popup extends React.Component {
     render() {
         return (
             <div className='popup'>
                 <div className='popup\_inner'>
-                   <b>{this.props.brand}</b>
-                    <br />
-                    <b> {this.props.name}</b>
-                    <br />
+            <img source= {this.props.image_link} />  
+<table>
 
-                   <b> {this.props.price} $</b>
-                    <br />
-                    <br />
-                    <div className="comments">
-                        <h2>Love it? Hate it? Leave a review!</h2>
-                        <CommentForm />
-                        <CommentList />
-                    </div>
-                    <br />
+    <tr>
+<th>Name</th><th>Brand</th><th>Price</th><th>Description</th>
+</tr>
+
+
+    
+                      <tr> <td>{this.props.name}</td>
+                        <td>{this.props.brand}</td>
+                        <td>{this.props.price}</td>
+                        <td>{this.props.description}</td>
+                        </tr>
+                        
+                        </table>
                     <button onClick={this.props.closePopup}>Go back</button>
+               
+                </div>
 
+                /** TO DO - ADD COMMENT COMPONENT + STAR RATING**/
+                <div className='comment'>
+                    /***Add review.js component here*/
                 </div>
             </div> //close 'popup'
         ); //close return
