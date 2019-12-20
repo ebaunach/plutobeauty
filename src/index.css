@@ -4,15 +4,6 @@
 /* ==========================================================================
    Responsive images and box padding
    ========================================================================== */
-button{
-  background-color: purple;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  opacity: 0.9;
-}
-
 img{
   width: 100px;
   height: 100px;
@@ -20,6 +11,7 @@ img{
 
 .item{
   max-width: 30%;
+  max-height: auto;
   text-align:center;
   display:block;
   background-color: transparent;
@@ -69,4 +61,25 @@ h1 {
   font-family: arial;
   font-size:15px;
   float:left;
+}
+
+button{
+  background: #6018cc;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 15px;
+  line-height: 4px;
+  text-align: center;
+  transition-property: background, border-radius;
+  transition-duration: .2s, 1s;
+  transition-timing-function: linear;
+  width: 95px;
+
+}
+button:hover {
+  background: #ed3ee4;
+  border-radius: 40%;
+}
+h1{
+text-align: center;
 }
