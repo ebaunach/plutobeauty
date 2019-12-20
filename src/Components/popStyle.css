@@ -7,9 +7,10 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    background-image: radial-gradient(#F97794, #623AA2);
+    background-color: white;
 }
 .popup\_inner {
+    alignment: center;
     position: absolute;
     left: 25%;
     right: 25%;
@@ -17,10 +18,21 @@
     bottom: 25%;
     margin: auto;
     border-radius: 20px;
-    background: white;
+    background: rgb(161, 30, 179);
 }
-.comments{
-    background: mediumpurple;
+table {
+  border-collapse: collapse;
+  border-spacing: 4;
+  width: 100%;
+  border: 2px solid #ddd;
 }
 
+th, td {
+  text-align: center;
+  border: 1px  black;
+  padding: 16px;
+}
 
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
