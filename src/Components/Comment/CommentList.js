@@ -1,6 +1,6 @@
 import React from "react";
 import Firebase from "../Firebase";
-
+import "../Comment/CommentStyle.css";
 
 class CommentList extends React.Component {
     state = { comments: [] };

@@ -23,25 +23,24 @@ class Blush extends Component {
             <div className="list">
                 <h1> Blush </h1>
                 {blushList.map(info =>
-                    <div class="card" key={info.id}>
-                        <img src={info.image_link} />
-                        <br />
-                        <div class="info">
+                    <div className="card" key={info.id}>
+                        <img src={info.image_link}/>
+                        <br/>
+                        <div className="info">
                             <b>Product:</b> {info.name}
-                            <br />
+                            <br/>
                             <b>Price:</b>
                             {info.price_sign} {info.price}
-                            <a href={info.product_link} />
-                            <br />
-                            <button onClick={this.togglePopup.bind(this)}> More info </button>
-                            {this.state.showPopup?
+                            <a href={info.product_link}/>
+                            <br/>
+                            <button onClick={this.togglePopup.bind(this)}> More info</button>
+                            {this.state.showPopup ?
                                 <Popup
                                     name={info.name}
                                     brand={info.brand}
                                     price={info.price}
-                                    description={info.description}
                                     image_link={info.image_link}
-                                    closePopup = {this.togglePopup.bind(this)}
+                                    closePopup={this.togglePopup.bind(this)}
                                 />
                                 : null}
                             <br/>

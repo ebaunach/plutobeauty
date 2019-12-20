@@ -17,39 +17,38 @@ class Foundation extends Component {
             });
     }
 
-    //TO DO - FIX PopUp - doesn't give exact product details (need a loop?
+    //List = Use map() & states to get information to show
+    // Pop Up button = use map() & states to have a reference for items to show
     render() {
         return (
             <div className="list">
                 <h1> Foundation </h1>
-                {foundationList.map(info => (
-                    <div class="card" key={info.id}>
-                        <img src={info.image_link} />
-                        <br />
-                        <div class="info">
+                {foundationList.map(info =>
+                    <div className="card" key={info.id}>
+                        <img src={info.image_link}/>
+                        <br/>
+                        <div className="info">
                             <b>Product:</b> {info.name}
-                            <br />
+                            <br/>
                             <b>Price:</b>
                             {info.price_sign} {info.price}
-                            <a href={info.product_link} />
-                            <br />
-                            <button onClick={this.togglePopup.bind(this)}> More info </button>
-                            {this.state.showPopup?
+                            <a href={info.product_link}/>
+                            <br/>
+                            <button onClick={this.togglePopup.bind(this)}> More info</button>
+                            {this.state.showPopup ?
                                 <Popup
                                     name={info.name}
                                     brand={info.brand}
                                     price={info.price}
-                                    description={info.description}
                                     image_link={info.image_link}
-                                    closePopup = {this.togglePopup.bind(this)}
+                                    closePopup={this.togglePopup.bind(this)}
                                 />
                                 : null}
-                                <br/>
+                            <br/>
                         </div>
                     </div>
-                ))}
+                )}
             </div>
-            //</Style>
         );
     }
 }
