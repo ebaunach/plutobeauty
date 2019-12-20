@@ -3,7 +3,7 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseconfig from './firebaseDB';
-//import './SignIn.css';
+//import "../Components/signIn.css";
 
 const firebaseApp = firebase.initializeApp(firebaseconfig);
 
@@ -19,7 +19,7 @@ class SignIn extends Component{
                 {
                     user
                         ? <p>Hello, {user.displayName}</p>
-                        : <p>Please sign in.</p>
+                        : <p>Welcome to your one stop shop for make up reviews!</p>
                 }
                 {
                     user

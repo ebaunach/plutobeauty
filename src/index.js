@@ -12,6 +12,7 @@ import Lips from "./Pages/Lips";
 import Blush from "./Pages/Blush";
 import Bronzer from "./Pages/Bronzer";
 import Brows from "./Pages/Brows";
+import Form from "./Pages/Form";
 
 import "./index.css";
 
@@ -19,6 +20,7 @@ const App = () => (
     <div>
         <Nav />
         <div className="container">
+            <Route exact={true} path="/" component={Form} />
             <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/Foundation" component={Foundation} />
             <Route exact path="/Eyes" component={Eyes} />

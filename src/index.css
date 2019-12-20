@@ -4,6 +4,15 @@
 /* ==========================================================================
    Responsive images and box padding
    ========================================================================== */
+button{
+  background-color: purple;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
 img{
   width: 100px;
   height: 100px;
@@ -11,7 +20,6 @@ img{
 
 .item{
   max-width: 30%;
-  max-height: auto;
   text-align:center;
   display:block;
   background-color: transparent;
@@ -62,13 +70,3 @@ h1 {
   font-size:15px;
   float:left;
 }
-
-button{
-  text-align:center;
-  font-family: arial;
-  color: white;
-  background: purple;
-
-}
-
-

@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 // import { BurgerIcon } from './'
 import styled from "styled-components";
 
+
 const Navigation = styled.header`
   width: 100%;
   border-bottom: 10px solid #222;
@@ -175,7 +176,7 @@ class Nav extends Component {
         return (
             <Navigation>
                 <div className="logo">
-                    <Link to="/SignIn">
+                    <Link to="/Form">
                         <h1>Pluto Beauty</h1>
                     </Link>
                 </div>
@@ -186,6 +187,8 @@ class Nav extends Component {
                         onClick={e => this.handleToggle(e)}
                     />
                     <ul className={`collapsed ${isExpanded ? "is-expanded" : ""}`}>
+                        <NavLink activeClassName="active" to="/Form">
+                        </NavLink>
                         <NavLink activeClassName="active" to="/SignIn">
                             <li>Sign In</li>
                         </NavLink>
