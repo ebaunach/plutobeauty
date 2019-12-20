@@ -56,7 +56,10 @@ class Form extends Component {
     render () {
         return (
             <form className="theForm">
-                <h2>Sign up</h2>
+                <h1>Welcome to your one stop shop for make up reviews!</h1>
+                <br />
+                <h2>If you're new here why not SIGN UP</h2>
+                <br />
                 <div className="panel panel-default">
                     <FormErrors formErrors={this.state.formErrors} />
                 </div>
